@@ -36,8 +36,8 @@ Let's discuss around AKS cost optimization based on above stages.
 ## 1- Select Right Size
 
 AKS cluster management is actually free, users pay for the nodes which run containers that means users only pay for Virtual Machines, storage and data transfer costs. So selecting correct VM size is very important of AKS cluster cost. 
-		a. Production clusters : If you don't have special requirement like GPU, general recommendation for production environments are VM series DSv3 and ESV3. D2s_v3 (2 vCPU, 8 GB Memory)  or D4s_v3 (4 vCPU, 16 GB Memory)  may be a good starting point. If you need a higher cpu and memory , you can select ESV3 series. 
-		b. Dev/Test clusters : Standard_B2ms, Standard_B4ms or Standard_B8ms size are good enough to reduce the cost of cluster for dev/test environments. 
+		a. Production clusters : If you don't have special requirement like GPU, general recommendation for production environments are VM series **DSv3 and ESV3**. **D2s_v3 (2 vCPU, 8 GB Memory)  or D4s_v3 (4 vCPU, 16 GB Memory)**  may be a good starting point. If you need a higher cpu and memory , you can select ESV3 series. 
+		b. Dev/Test clusters : **Standard_B2ms, Standard_B4ms or Standard_B8ms** size are good enough to reduce the cost of cluster for dev/test environments. 
 		
 ## 2- Use Reserved Instances 
 
@@ -45,7 +45,7 @@ Reserved instances help you save money by committing to one-year or three-years 
 	
 ## 3- Scale node pools to 0   
 
-Node pools contain the virtual machines that run our pods / applications. AKS has two different node pools which are System and User. System node pools has critical system pods such CoreDNS and metrics-server and that requires always running. User node pools run our application pods. You can have some application and runs only a couple of hours in a day enough or that may be a batch application and you don't need always running VMs. In this case, you should scale node pools to zero. This guide helps you to learn how to scale to 0.
+Node pools contain the virtual machines that run our pods / applications. AKS has two different node pools which are System and User. System node pools has critical system pods such CoreDNS and metrics-server and that requires always running. User node pools run our application pods. You can have some application and runs only a couple of hours in a day enough or that may be a batch application and you don't need always running VMs. In this case, you should scale node pools to zero. This guide helps you to learn how to scale to 0. https://docs.microsoft.com/en-us/azure/aks/scale-cluster#scale-user-node-pools-to-0 
 	
 ## 4- Add spot node pool 
 
@@ -55,6 +55,13 @@ Azure Spot Virtual Machine instances are great for workloads that can handle int
 
 Azure Policy helps use to enforce usage/limits of resources and Azure Policy extends Open Policy Agent (OPA) to integrate AKS with built-in policies. For example, you must carefully attacks such as denial of service attack which can increase resource usage. You can use "Ensure container CPU and memory resource limits do not exceed the specified limits in Kubernetes cluster" policy to prevent resource exhaustion attack.
 	
-## 6- Cost governance: 
+## 6- Cost governance
 
-Cost governance is the continuous process of implementing policies to control costs.  In the Kubernetes context, there are several ways organizations can control and optimize costs. These include native Kubernetes tooling to manage and govern resource usage and consumption and proactively monitor and optimize the underlying infrastructure. You can use Kubecost to govern AKS cluster costs which can scope cost allocation to a deployment, service, label, pod, or namespace, which provides flexibility in charging back or showing cluster users.  See there for more information.
+Cost governance is the continuous process of implementing policies to control costs.  In the Kubernetes context, there are several ways organizations can control and optimize costs. These include native Kubernetes tooling to manage and govern resource usage and consumption and proactively monitor and optimize the underlying infrastructure. You can use **Kubecost** to govern AKS cluster costs which can scope cost allocation to a deployment, service, label, pod, or namespace, which provides flexibility in charging back or showing cluster users.  See there for more information. https://docs.kubecost.com/install
+
+
+References:
+
+- http://docs.microsoft.com/en-US/azure 
+- https://channel9.msdn.com/
+- http://docs.kubernetes.io/
