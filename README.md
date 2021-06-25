@@ -49,7 +49,7 @@ Node pools contain the virtual machines that run our pods / applications. AKS ha
 	
 ## 4- Add spot node pool 
 
-Azure Spot Virtual Machine instances are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more. And we can create a spot node pool which backed by a spot virtual machine scale sets. When deploying a spot node pool, Azure will allocate the spot nodes if there's capacity available. But there's no SLA for the spot nodes. A spot scale set that backs the spot node pool is deployed in a single fault domain and offers no high availability guarantees. At any time when Azure needs the capacity back, the Azure infrastructure will evict spot nodes. For detail click here
+Azure Spot Virtual Machine instances are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more. And we can create a spot node pool which backed by a spot virtual machine scale sets. When deploying a spot node pool, Azure will allocate the spot nodes if there's capacity available. But there's no SLA for the spot nodes. A spot scale set that backs the spot node pool is deployed in a single fault domain and offers no high availability guarantees. At any time when Azure needs the capacity back, the Azure infrastructure will evict spot nodes. For detail click here. https://docs.microsoft.com/en-us/azure/aks/spot-node-pool
 	 
 ## 5- Use Azure Policy for AKS resource quotas 
 
